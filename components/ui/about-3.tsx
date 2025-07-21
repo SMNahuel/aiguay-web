@@ -32,32 +32,7 @@ interface About3Props {
   }>;
 }
 
-const defaultCompanies = [
-  {
-    src: "https://shadcnblocks.com/images/block/logos/company/fictional-company-logo-1.svg",
-    alt: "Arc",
-  },
-  {
-    src: "https://shadcnblocks.com/images/block/logos/company/fictional-company-logo-2.svg",
-    alt: "Descript",
-  },
-  {
-    src: "https://shadcnblocks.com/images/block/logos/company/fictional-company-logo-3.svg",
-    alt: "Mercury",
-  },
-  {
-    src: "https://shadcnblocks.com/images/block/logos/company/fictional-company-logo-4.svg",
-    alt: "Ramp",
-  },
-  {
-    src: "https://shadcnblocks.com/images/block/logos/company/fictional-company-logo-5.svg",
-    alt: "Retool",
-  },
-  {
-    src: "https://shadcnblocks.com/images/block/logos/company/fictional-company-logo-6.svg",
-    alt: "Watershed",
-  },
-];
+
 
 const defaultAchievements = [
   { label: "Agentes de IA Implementados", value: "150+" },
@@ -98,6 +73,7 @@ export const About3 = ({
           <p className="text-muted-foreground">{description}</p>
         </div>
         <div className="grid gap-7 lg:grid-cols-3">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src={mainImage.src}
             alt={mainImage.alt}
@@ -105,6 +81,7 @@ export const About3 = ({
           />
           <div className="flex flex-col gap-7 md:flex-row lg:flex-col">
             <div className="flex flex-col justify-between gap-6 rounded-xl bg-muted p-7 md:w-1/2 lg:w-auto">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={breakout.src}
                 alt={breakout.alt}
@@ -120,6 +97,7 @@ export const About3 = ({
                 </a>
               </Button>
             </div>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src={secondaryImage.src}
               alt={secondaryImage.alt}

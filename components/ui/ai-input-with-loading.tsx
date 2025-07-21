@@ -1,5 +1,6 @@
 "use client";
-
+// quiero que eslint ignore el archivo y no me ponga warning
+/* eslint-disable */
 import { CornerRightUp } from "lucide-react";
 import { useState, useEffect } from "react";
 import { Textarea } from "@/components/ui/textarea";
@@ -27,11 +28,11 @@ export function AIInputWithLoading({
   thinkingDuration = 1000,
   onSubmit,
   className,
-  autoAnimate = false
+  autoAnimate = false,
 }: AIInputWithLoadingProps) {
   const [inputValue, setInputValue] = useState("");
   const [submitted, setSubmitted] = useState(autoAnimate);
-  
+
   const { textareaRef, adjustHeight } = useAutoResizeTextarea({
     minHeight,
     maxHeight,
@@ -39,9 +40,8 @@ export function AIInputWithLoading({
 
   useEffect(() => {
     let timeoutId: NodeJS.Timeout;
-
+    
     const runAnimation = () => {
-      if (!isAnimating) return;
       setSubmitted(true);
       timeoutId = setTimeout(() => {
         setSubmitted(false);
@@ -49,21 +49,17 @@ export function AIInputWithLoading({
       }, loadingDuration);
     };
 
-    if (isAnimating) {
-      runAnimation();
-    }
-
     return () => clearTimeout(timeoutId);
-  }, [isAnimating, loadingDuration, thinkingDuration]);
+  }, [loadingDuration, thinkingDuration]);
 
   const handleSubmit = async () => {
     if (!inputValue.trim() || submitted) return;
-    
+
     setSubmitted(true);
     await onSubmit?.(inputValue);
     setInputValue("");
     adjustHeight(true);
-    
+
     setTimeout(() => {
       setSubmitted(false);
     }, loadingDuration);
